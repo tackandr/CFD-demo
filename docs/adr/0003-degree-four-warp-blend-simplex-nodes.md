@@ -47,11 +47,11 @@ of any future three-dimensional simplex elements.
 - Validation should check the degree-four node count, edge positions against
   the one-dimensional GLL nodes, and consistency under element vertex
   permutations.
-- Compare the conditioning of the reference-element differentiation operators
+- Compare the conditioning of the reference-element Vandermonde matrices
   for the selected degree-four warp-and-blend nodes and degree-four equispaced
-  nodes, using the same basis and matrix norm. Treat this as a numerical
-  validation rather than assuming a conditioning value independent of basis
-  and scaling.
+  nodes, using the same polynomial basis, normalization, and matrix norm.
+  The full differentiation matrices are singular because constants have zero
+  derivative, so their ordinary condition numbers cannot compare node sets.
 - Basis normalization, quadrature, and three-dimensional extensions remain
   open for future decisions.
 
