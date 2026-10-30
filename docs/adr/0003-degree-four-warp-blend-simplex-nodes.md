@@ -1,8 +1,8 @@
 # ADR 0003: Use degree-four warp-and-blend simplex nodes
 
-- Status: Proposed
-- Date: 2026-10-26
-- Approval: Pending
+- Status: Accepted
+- Date: 2026-10-30
+- Approval: Andreas
 
 ## Context
 
@@ -25,17 +25,6 @@ five edge nodes including the vertices.
 This decision specifies the polynomial degree and nodal construction. It does
 not prescribe a particular basis normalization, quadrature rule, or treatment
 of any future three-dimensional simplex elements.
-
-## Alternatives considered
-
-- **Equispaced simplex nodes:** A straightforward nodal distribution, but it
-  does not provide the requested GLL distribution along edges. Hesthaven and
-  Warburton discuss the importance of nodal placement to the conditioning of
-  nodal DG operators; the equispaced distribution has less favorable
-  differentiation-operator matrix properties than the warp-and-blend
-  distribution for this use.
-- **Other simplex nodal constructions:** Other distributions could be used,
-  but warp-and-blend is selected to satisfy the requested GLL edge placement.
 
 ## Consequences
 
