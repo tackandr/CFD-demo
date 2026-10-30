@@ -1,8 +1,8 @@
 # ADR 0002: Use Python with JAX as the programming framework
 
-- Status: Proposed
-- Date: 2026-10-26
-- Approval: Pending
+- Status: Accepted
+- Date: 2026-10-30
+- Approval: Andreas
 
 ## Context
 
