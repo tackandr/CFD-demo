@@ -6,9 +6,7 @@
 
 ## Context
 
-The solver uses JAX (ADR 0002) and a degree-four nodal discontinuous Galerkin
-discretization on triangular elements (ADR 0003). High-resolution schemes use
-TVD limiter functions to reduce spurious oscillations, while numerical
+High-resolution schemes use TVD limiter functions to reduce spurious oscillations, while numerical
 interface fluxes provide alternative ways to compute fluxes between elements.
 Limiter behavior varies: more compressive limiters can preserve sharp
 features, while more restrictive limiters can be more diffusive. Users need
@@ -54,21 +52,6 @@ particular, the multidimensional and unstructured-triangle treatment, and
 whether limiting is component-wise or characteristic-wise, require a separate
 decision before integration into the solver.
 
-## Alternatives considered
-
-- **Provide only one limiter:** simpler to expose, but does not let users
-  choose the desired balance between sharpness and numerical diffusion.
-- **Select limiters through code changes:** avoids a configuration option, but
-  makes experimentation and comparison unnecessarily difficult.
-- **Select one fixed interface flux:** simpler to configure, but prevents
-  users from comparing fluxes or composing them with different limiters.
-- **Prescribe a limiter/flux combination here:** this would commit to a
-  coupling and DG integration strategy before the appropriate method for
-  triangular elements has been decided.
-- **Choose and implement a DG solution limiter in this ADR:** that would
-  address shock control in the current DG method, but is a different method
-  from the TVD flux-limiter functions requested here and needs its own
-  formulation for triangular elements.
 
 ## Consequences
 
