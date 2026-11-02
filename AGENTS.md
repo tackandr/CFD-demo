@@ -18,8 +18,15 @@
 - When implementing an approved plan, validate the result against the relevant
   ADRs and run existing applicable checks. Report any unresolved decisions.
 
-## Initial scope
+## Validating changes
 
-This initial setup is documentation only. Do not add source code, dependencies,
-or build/test infrastructure as part of this setup; implementation belongs to
-later tasks guided by accepted ADRs.
+- The project uses `uv` (ADR 0006). Install the environment with `uv sync`.
+- Run `uv run pytest` before reporting a change as complete. This runs the unit
+  tests and the ADR 0005 Sod shock tube verification case, and takes roughly
+  seven minutes.
+- While iterating, `uv run pytest -m "not verification"` runs the unit tests
+  alone in about half a minute.
+- The verification run prints a report of the measured errors, wave positions
+  and conservation defects in the terminal summary. Check it against the
+  acceptance criteria of ADR 0005 when changing the discretization.
+- Add tests for new behavior and reference the ADR the behavior comes from.
